@@ -16,7 +16,7 @@ export enum Pages {
 export const ROOMS_PER_PAGE = 5;
 export const BOOKINGS_PER_PAGE = 5;
 
-const PRODUCTION_DOMAIN = "";
+const PRODUCTION_DOMAIN = "https://hotels-booking-chi.vercel.app";
 
 const DEVELOPMENT_DOMAIN = "http://localhost:3000";
 
