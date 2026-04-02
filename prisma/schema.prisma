@@ -1,0 +1,112 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id                   String   @id @default(uuid())
+  email                String   @unique
+  clerkUserId          String   @unique
+  recentSearchedCities String[]
+  name                 String?
+  image                String?
+  role                 UserRole @default(USER)
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
+
+  // Relations
+  hotels   Hotel[]   @relation("HotelOwner")
+  bookings Booking[]
+}
+
+model Hotel {
+  id      String @id @default(uuid())
+  name    String
+  address String
+  contact String
+  city    String
+
+  // Owner Relation
+  ownerId String @unique
+  owner   User   @relation("HotelOwner", fields: [ownerId], references: [id], onDelete: Cascade)
+
+  // Relations
+  rooms    Room[]
+  bookings Booking[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([ownerId])
+  @@index([city])
+}
+
+model Room {
+  id            String   @id @default(uuid())
+  roomType      String
+  pricePerNight Float
+  amenities     String[]
+  images        String[]
+  isAvailable   Boolean  @default(true)
+  rate          Int      @default(1)
+
+  // Hotel Relation
+  hotelId String
+  hotel   Hotel  @relation(fields: [hotelId], references: [id], onDelete: Cascade)
+
+  // Relations
+  bookings Booking[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([hotelId])
+  @@index([isAvailable])
+}
+
+model Booking {
+  id String @id @default(uuid())
+
+  // Relations
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  roomId String
+  room   Room   @relation(fields: [roomId], references: [id], onDelete: Cascade)
+
+  hotelId String
+  hotel   Hotel  @relation(fields: [hotelId], references: [id], onDelete: Cascade)
+
+  checkInDate  DateTime
+  checkOutDate DateTime
+
+  totalPrice Float
+  guests     Int
+
+  status BookingStatus @default(PENDING)
+
+  isPaid Boolean @default(false)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([userId])
+  @@index([roomId])
+  @@index([hotelId])
+  @@index([checkInDate, checkOutDate])
+  @@index([status])
+}
+
+enum UserRole {
+  USER
+  HOTELOWNER
+}
+
+enum BookingStatus {
+  PENDING
+  CONFIRMED
+  CANCELLED
+}
