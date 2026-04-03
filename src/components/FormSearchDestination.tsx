@@ -68,7 +68,7 @@ const FormSearchDestination = ({ cities }: { cities: string[] }) => {
       onSubmit={onSearch}
       className="bg-white text-gray-500 rounded-lg px-6 py-4 mt-8 flex flex-col md:flex-row max-md:items-start gap-4 max-md:mx-auto"
     >
-      <div>
+      <div className="flex-1 w-full">
         <div className="flex items-center gap-2">
           <Calendar className="h-4" />
           <label htmlFor="destinationInput">Destination</label>
@@ -80,7 +80,7 @@ const FormSearchDestination = ({ cities }: { cities: string[] }) => {
           id="destinationInput"
           autoComplete="off"
           type="text"
-          className="rounded border border-gray-200 px-3 py-1.5 mt-1.5 text-sm outline-none"
+          className="w-full rounded border border-gray-200 px-3 py-1.5 mt-1.5 text-sm outline-none"
           placeholder="Cairo,dubai..."
           required
         />
@@ -94,7 +94,7 @@ const FormSearchDestination = ({ cities }: { cities: string[] }) => {
         </datalist>
       </div>
 
-      <div>
+      <div className="flex-1 w-full">
         <div className="flex items-center gap-2">
           <Calendar className="h-4" />
           <label htmlFor="checkIn">Check in</label>
@@ -102,11 +102,11 @@ const FormSearchDestination = ({ cities }: { cities: string[] }) => {
         <input
           id="checkIn"
           type="date"
-          className="rounded border border-gray-200 px-3 py-1.5 mt-1.5 text-sm outline-none"
+          className="w-full rounded border border-gray-200 px-3 py-1.5 mt-1.5 text-sm outline-none"
         />
       </div>
 
-      <div>
+      <div className="flex-1 w-full">
         <div className="flex items-center gap-2">
           <Calendar className="h-4" />
           <label htmlFor="checkOut">Check out</label>
@@ -114,18 +114,18 @@ const FormSearchDestination = ({ cities }: { cities: string[] }) => {
         <input
           id="checkOut"
           type="date"
-          className="rounded border border-gray-200 px-3 py-1.5 mt-1.5 text-sm outline-none"
+          className="w-full rounded border border-gray-200 px-3 py-1.5 mt-1.5 text-sm outline-none"
         />
       </div>
 
-      <div className="flex md:flex-col max-md:gap-2 max-md:items-center">
+      <div className="flex flex-1 w-full md:flex-col max-md:gap-2 max-md:items-center">
         <label htmlFor="guests">Guests</label>
         <input
           min={1}
           max={4}
           id="guests"
           type="number"
-          className="rounded border border-gray-200 px-3 py-1.5 mt-1.5 text-sm outline-none  max-w-16"
+          className="w-full rounded border border-gray-200 px-3 py-1.5 mt-1.5 text-sm outline-none md:max-w-16"
           placeholder="0"
         />
       </div>

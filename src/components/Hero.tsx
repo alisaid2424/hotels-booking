@@ -9,7 +9,7 @@ const Hero = async () => {
   const cities = userId ? await getUserRecentSearches(userId) : [];
 
   return (
-    <div className="relative flex items-center h-screen text-white padding-x">
+    <div className="relative flex items-center justify-center sm:justify-start h-screen text-white padding-x">
       <Image
         src="/heroImage.jpg"
         alt="Hero background"
@@ -21,8 +21,8 @@ const Hero = async () => {
       <div className="overlay absolute inset-0 w-full h-full bg-black/70" />
 
       <div className="relative">
-        <Motion className="text-center lg:text-left">
-          <p className="bg-[#49B9FF]/50 px-3.5 py-1 rounded-full w-fit">
+        <Motion className="text-center sm:text-left">
+          <p className="bg-[#49B9FF]/50 px-3.5 py-1 rounded-full w-fit mx-auto sm:mx-0">
             The Ultimate Hotel Experience
           </p>
           <h1 className="font-playfair text-2xl md:text-5xl xl:text-[56px] md:leading-[56px] font-bold md:font-extrabold my-4 max-w-xl">

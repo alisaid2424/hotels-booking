@@ -15,7 +15,9 @@ const Title = ({ title, subTitle, align, font }: Props) => {
         align === "left" && "md:items-start md:text-start"
       }`}
     >
-      <h2 className={`text-4xl md:text-[40px] ${font || "font-playfair"}`}>
+      <h2
+        className={`text-2xl md:text-4xl md:text-[40px] ${font || "font-playfair"}`}
+      >
         <TextAnimate animation="blurInUp" by="character" once>
           {title}
         </TextAnimate>

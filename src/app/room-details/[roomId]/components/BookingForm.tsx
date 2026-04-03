@@ -106,7 +106,7 @@ const BookingForm = ({ roomId }: { roomId: string }) => {
         onSubmit={form.handleSubmit(onSubmit)}
         className="flex flex-col md:flex-row items-start md:items-center justify-between bg-white shadow-[0px_0px_20px_rgba(0,0,0,0.15)] p-6 rounded-xl mx-auto mt-16 max-w-6xl"
       >
-        <div className="flex flex-col flex-wrap md:flex-row items-start md:items-center gap-4 md:gap-10 text-gray-500">
+        <div className="flex flex-1 w-full flex-col flex-wrap md:flex-row items-stretch md:items-center gap-4 md:gap-10 text-gray-500">
           {/* Check In */}
           <InputWithLabel<BookingSchemaType>
             fieldTitle="Check In"
@@ -132,7 +132,7 @@ const BookingForm = ({ roomId }: { roomId: string }) => {
             nameInSchema="guests"
             type="number"
             min={1}
-            className="max-w-[150px]"
+            className="w-full md:max-w-[150px]"
           />
         </div>
 

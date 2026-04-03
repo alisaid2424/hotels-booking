@@ -51,7 +51,7 @@ export function InputWithLabel<S>({
                 id={nameInSchema}
                 className={cn(
                   showCurrency && props.type === "number" && "ps-8",
-                  className
+                  className,
                 )}
                 {...props}
                 value={field.value ?? ""}

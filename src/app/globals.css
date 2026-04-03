@@ -116,6 +116,11 @@
     font-family: var(--font-outfit), sans-serif;
     @apply bg-background text-foreground;
   }
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    opacity: 1;
+    position: absolute;
+    right: 7;
+  }
 }
 
 @layer components {
