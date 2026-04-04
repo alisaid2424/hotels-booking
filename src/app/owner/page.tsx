@@ -59,7 +59,7 @@ const OwnerPage = async ({ searchParams }: OwnerPageProps) => {
         {dashboardCards.map((card, idx) => (
           <div
             key={idx}
-            className="flex items-center justify-between px-4 py-3 bg-primary/10 border border-primary/20 rounded-md max-w-52 w-full"
+            className="flex items-center justify-between px-4 py-3 bg-primary/10 border border-primary/20 rounded-md sm:max-w-52 w-full"
           >
             <div>
               <h3 className="text-base text-primary">{card.title}</h3>

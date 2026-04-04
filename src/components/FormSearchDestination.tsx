@@ -102,7 +102,7 @@ const FormSearchDestination = ({ cities }: { cities: string[] }) => {
         <input
           id="checkIn"
           type="date"
-          className="w-full rounded border border-gray-200 px-3 py-1.5 mt-1.5 text-sm outline-none"
+          className="relative w-full rounded border border-gray-200 px-3 py-1.5 mt-1.5 text-sm outline-none"
         />
       </div>
 
@@ -114,7 +114,7 @@ const FormSearchDestination = ({ cities }: { cities: string[] }) => {
         <input
           id="checkOut"
           type="date"
-          className="w-full rounded border border-gray-200 px-3 py-1.5 mt-1.5 text-sm outline-none"
+          className="relative w-full rounded border border-gray-200 px-3 py-1.5 mt-1.5 text-sm outline-none"
         />
       </div>
 

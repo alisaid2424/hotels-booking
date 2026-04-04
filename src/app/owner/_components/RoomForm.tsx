@@ -124,11 +124,11 @@ const RoomForm = ({ room }: { room?: Room }) => {
     <Form {...form}>
       <form
         onSubmit={handleSubmit(submitForm)}
-        className="flex flex-col gap-5 mt-5"
+        className="flex flex-col gap-5 mt-5 pb-10"
       >
         <p className="font-medium">Images</p>
 
-        <div className="grid grid-cols-3 sm:flex flex-wrap gap-4">
+        <div className="grid grid-cols-2 sm:flex flex-wrap gap-4">
           {images.map((img, index) => (
             <label key={index}>
               <Image
@@ -140,7 +140,7 @@ const RoomForm = ({ room }: { room?: Room }) => {
                 alt={`roomImage-${index + 1}`}
                 width={300}
                 height={300}
-                className="max-w-32 h-20 object-cover cursor-pointer"
+                className="sm:max-w-32 h-20 object-cover cursor-pointer"
               />
 
               <input
@@ -163,7 +163,7 @@ const RoomForm = ({ room }: { room?: Room }) => {
         )}
 
         <div className="flex max-sm:flex-col sm:items-center gap-4 mt-4">
-          <div className="max-w-48 w-full">
+          <div className="sm:max-w-48 w-full">
             <SelectWithLabel<SchemaType>
               fieldTitle="Room Type"
               nameInSchema="roomType"
@@ -171,7 +171,7 @@ const RoomForm = ({ room }: { room?: Room }) => {
             />
           </div>
 
-          <div className="max-w-40 w-full">
+          <div className="sm:max-w-40 w-full">
             <InputWithLabel<SchemaType>
               fieldTitle="Price / Night"
               nameInSchema="pricePerNight"
@@ -182,7 +182,7 @@ const RoomForm = ({ room }: { room?: Room }) => {
             />
           </div>
 
-          <div className="max-w-32 w-full">
+          <div className="sm:max-w-32 w-full">
             <InputWithLabel<SchemaType>
               fieldTitle="Rating"
               nameInSchema="rate"
