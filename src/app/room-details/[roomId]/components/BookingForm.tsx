@@ -12,11 +12,13 @@ import { createBooking } from "@/server/actions/booking";
 import { useRouter } from "next/navigation";
 import { useToast } from "@/hooks/use-toast";
 import { LoaderCircle } from "lucide-react";
+import { useClerk, useUser } from "@clerk/nextjs";
 
 const BookingForm = ({ roomId }: { roomId: string }) => {
   const router = useRouter();
   const { toast } = useToast();
-
+  const { user } = useUser();
+  const { openSignIn } = useClerk();
   const [availability, setAvailability] = useState<"idle" | "available">(
     "idle",
   );
@@ -43,6 +45,16 @@ const BookingForm = ({ roomId }: { roomId: string }) => {
 
   const onSubmit = (data: BookingSchemaType) => {
     startTransition(async () => {
+      if (!user) {
+        openSignIn({
+          appearance: {
+            elements: {
+              modalContent: "mx-auto my-auto",
+            },
+          },
+        });
+        return;
+      }
       // check availability first
       if (availability === "idle") {
         const res = await checkRoomAvailability({

@@ -90,7 +90,17 @@ const Navbar = () => {
 
   const LoginButton = ({ onClick }: { onClick?: () => void }) => (
     <Button
-      onClick={onClick || (() => openSignIn())}
+      onClick={
+        onClick ||
+        (() =>
+          openSignIn({
+            appearance: {
+              elements: {
+                modalContent: "mx-auto my-auto",
+              },
+            },
+          }))
+      }
       className="px-6 rounded-full"
     >
       Login
@@ -191,7 +201,13 @@ const Navbar = () => {
             {!user && (
               <LoginButton
                 onClick={() => {
-                  openSignIn();
+                  openSignIn({
+                    appearance: {
+                      elements: {
+                        modalContent: "mx-auto my-auto",
+                      },
+                    },
+                  });
                   setIsMenuOpen(false);
                 }}
               />
