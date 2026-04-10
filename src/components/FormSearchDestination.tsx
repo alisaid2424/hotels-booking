@@ -7,15 +7,29 @@ import { useRouter } from "next/navigation";
 import { storeRecentSearchedCity } from "@/server/actions/user";
 import { useToast } from "@/hooks/use-toast";
 import * as motion from "motion/react-client";
+import { useClerk, useUser } from "@clerk/nextjs";
 
 const FormSearchDestination = ({ cities }: { cities: string[] }) => {
   const router = useRouter();
   const { toast } = useToast();
+  const { user } = useUser();
+  const { openSignIn } = useClerk();
   const [destination, setDestination] = useState<string>("");
   const [searchedCities, setSearchedCities] = useState<string[]>(cities);
 
   const onSearch = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if (!user) {
+      openSignIn({
+        appearance: {
+          elements: {
+            modalContent: "mx-auto my-auto",
+          },
+        },
+      });
+      return;
+    }
 
     const city = destination.trim().toLowerCase();
 
