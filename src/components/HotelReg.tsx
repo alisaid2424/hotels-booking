@@ -73,12 +73,11 @@ const HotelReg = ({
           className="flex bg-white rounded-xl w-[90%] md:w-full max-w-3xl max-md:mx-2"
         >
           <Image
-            src="/regImage.png"
+            src="/regImage.webp"
             alt="reg-image"
             width={500}
             height={700}
             className="w-1/2 rounded-xl hidden md:block"
-            priority
           />
 
           <div className="relative flex flex-col items-center w-full md:w-1/2 p-8 md:p-10">

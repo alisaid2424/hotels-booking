@@ -167,12 +167,13 @@ const Navbar = () => {
           <div className="flex items-center gap-3 md:hidden">
             {user && <UserMenu />}
 
-            <MenuIcon
+            <button
               onClick={() => setIsMenuOpen((prev) => !prev)}
-              className={`!w-8 !h-8 cursor-pointer ${
-                isScrolled ? "text-black" : "text-white"
-              }`}
-            />
+              aria-label="Open menu"
+              className={isScrolled ? "text-black" : "text-white"}
+            >
+              <MenuIcon className="size-8" />
+            </button>
           </div>
 
           {/* Mobile Menu */}
@@ -184,6 +185,7 @@ const Navbar = () => {
             <Button
               variant="outline"
               className="absolute top-4 right-4"
+              aria-label="Close menu"
               onClick={() => setIsMenuOpen(false)}
             >
               <XIcon className="h-6" />

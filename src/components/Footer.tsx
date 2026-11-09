@@ -10,7 +10,7 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <div className="bg-[#F6F9FC] text-gray-500/80 pt-8 padding-x">
+    <div className="bg-[#F6F9FC] text-gray-600 pt-8 padding-x">
       <div className="flex flex-wrap justify-between gap-12 md:gap-6">
         <div className="max-w-80">
           <Image

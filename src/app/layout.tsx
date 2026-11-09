@@ -32,6 +32,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
+      <head>
+        <link
+          rel="preconnect"
+          href="https://lasting-meerkat-51.clerk.accounts.dev"
+        />
+      </head>
       <body className={`${outfit.variable} ${playfair.variable} antialiased`}>
         <ClerkProvider>
           <Navbar />

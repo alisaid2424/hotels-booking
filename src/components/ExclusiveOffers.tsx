@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { exclusiveOffers } from "@/constants/data";
 import Motion from "./Motion";
+import Image from "next/image";
 
 const ExclusiveOffers = () => {
   return (
@@ -31,8 +32,11 @@ const ExclusiveOffers = () => {
             index={index}
             className="group relative flex flex-col items-start justify-between gap-1 pt-12 md:pt-16 px-4 rounded-xl text-white bg-no-repeat bg-cover bg-center"
           >
-            <div
-              style={{ backgroundImage: `url(${item.image})` }}
+            <Image
+              src={item.image}
+              alt={item.title}
+              fill
+              sizes="(max-width:768px) 100vw, 33vw"
               className="absolute inset-0 -z-10 bg-cover bg-center rounded-xl"
             />
 

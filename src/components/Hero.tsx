@@ -11,14 +11,14 @@ const Hero = async () => {
   return (
     <div className="relative flex items-center justify-center sm:justify-start h-screen text-white padding-x">
       <Image
-        src="/heroImage.jpg"
+        src="/heroImage.webp"
         alt="Hero background"
         fill
         priority
         quality={90}
         className="object-cover"
       />
-      <div className="overlay absolute inset-0 w-full h-full bg-black/70" />
+      <div className="overlay absolute inset-0 w-full h-full bg-black/80" />
 
       <div className="relative">
         <Motion className="text-center sm:text-left">

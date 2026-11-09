@@ -18,7 +18,7 @@ export const exclusiveOffers = [
     description: "Enjoy a complimentary night and daily breakfast",
     priceOff: 25,
     expiryDate: "Aug 31",
-    image: "/exclusiveOfferCardImg1.png",
+    image: "/exclusiveOfferCardImg1.webp",
   },
   {
     _id: 2,
@@ -26,7 +26,7 @@ export const exclusiveOffers = [
     description: "Special couples package including spa treatment",
     priceOff: 20,
     expiryDate: "Sep 20",
-    image: "/exclusiveOfferCardImg2.png",
+    image: "/exclusiveOfferCardImg2.webp",
   },
   {
     _id: 3,
@@ -35,7 +35,7 @@ export const exclusiveOffers = [
       "Book 60 days in advance and save on your stay at any of our luxury properties worldwide.",
     priceOff: 30,
     expiryDate: "Sep 25",
-    image: "/exclusiveOfferCardImg3.png",
+    image: "/exclusiveOfferCardImg3.webp",
   },
 ];
 
