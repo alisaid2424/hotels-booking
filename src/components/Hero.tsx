@@ -15,7 +15,7 @@ const Hero = async () => {
         alt="Hero background"
         fill
         priority
-        quality={90}
+        quality={75}
         className="object-cover"
       />
       <div className="overlay absolute inset-0 w-full h-full bg-black/80" />

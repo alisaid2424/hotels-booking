@@ -37,7 +37,7 @@ const ExclusiveOffers = () => {
               alt={item.title}
               fill
               sizes="(max-width:768px) 100vw, 33vw"
-              className="absolute inset-0 -z-10 bg-cover bg-center rounded-xl"
+              className="absolute inset-0 -z-10 object-cover rounded-xl"
             />
 
             <p className="px-3 py-1 absolute top-4 start-4 text-xs bg-white text-gray-800 font-medium rounded-full">

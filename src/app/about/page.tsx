@@ -1,7 +1,9 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Award, Users, Star, Globe, ArrowRight } from "lucide-react";
+import { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 
 const stats = [
   { icon: Award, value: "25+", label: "Years" },
@@ -9,6 +11,12 @@ const stats = [
   { icon: Star, value: "4.9", label: "Rating" },
   { icon: Globe, value: "42", label: "Countries" },
 ];
+
+export const metadata: Metadata = {
+  title: "About Us",
+  description:
+    "Founded in 1999, we connect discerning guests with the world's finest hotels across 42 countries.",
+};
 
 export default function AboutPage() {
   return (
@@ -58,11 +66,16 @@ export default function AboutPage() {
 
         {/* CTA */}
         <div className="flex gap-3">
-          <Button className="bg-gradient-to-r from-primary to-secondary text-white hover:opacity-90 transition-opacity gap-2 font-semibold h-11 px-6 border-0">
-            Explore Hotels <ArrowRight className="w-4 h-4" />
+          <Button
+            asChild
+            className="bg-gradient-to-r from-primary to-secondary text-primary-foreground hover:opacity-90 transition-opacity gap-2 font-semibold h-11 px-6 border-0"
+          >
+            <Link href="/rooms">
+              Explore Hotels <ArrowRight className="w-4 h-4" />
+            </Link>
           </Button>
-          <Button variant="outline" className="h-11 px-6 font-semibold">
-            Contact Us
+          <Button asChild variant="outline" className="h-11 px-6 font-semibold">
+            <Link href="/contact">Contact Us</Link>
           </Button>
         </div>
       </div>
@@ -77,7 +90,7 @@ export default function AboutPage() {
               alt="Luxury hotel lobby"
               fill
               className="object-cover"
-              unoptimized
+              sizes="(max-width:1024px) 0px, 33vw"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
           </div>
@@ -121,7 +134,7 @@ export default function AboutPage() {
             alt="Hotel pool"
             fill
             className="object-cover"
-            unoptimized
+            sizes="(max-width:1024px) 0px, 112px"
           />
         </div>
       </div>

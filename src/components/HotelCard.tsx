@@ -1,7 +1,6 @@
 import { MapPin, StarIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { Button } from "./ui/button";
 import { formatCurrency } from "@/lib/formatters";
 import { RoomWithHotel } from "@/types/room";
 import { Card, CardContent } from "@/components/ui/card";
@@ -14,13 +13,17 @@ const HotelCard = ({ room, index }: { room: RoomWithHotel; index: number }) => {
       <Card className="group relative sm:w-full mx-auto rounded-xl overflow-hidden bg-white text-gray-500/90 shadow-[0px_4px_4px_rgba(0,0,0,0.05)] border-none hover:-translate-y-3 transition-all duration-300">
         <Link href={`/room-details/${room.id}`}>
           <div className="h-60 w-full overflow-hidden">
-            <Image
-              src={room.images[0] ?? ""}
-              alt={`img-room-${room.hotel.name}`}
-              width={400}
-              height={300}
-              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
-            />
+            {room.images[0] ? (
+              <Image
+                src={room.images[0]}
+                alt={`${room.hotel.name} — ${room.roomType}`}
+                width={400}
+                height={300}
+                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+            ) : (
+              <div className="h-full w-full bg-gray-100" />
+            )}
           </div>
 
           {/* Best Seller Badge */}
@@ -32,19 +35,21 @@ const HotelCard = ({ room, index }: { room: RoomWithHotel; index: number }) => {
 
           <CardContent className="px-4 py-5">
             <div className="flex items-center justify-between">
-              <p className="font-playfair text-xl font-medium text-gray-800">
+              <p className="font-playfair text-xl font-medium text-gray-800 line-clamp-1">
                 {room.hotel.name}
               </p>
 
               <div className="flex items-center gap-1">
                 <StarIcon className="w-4 h-4 text-primary fill-primary" />
-                {room.rate}.5
+                {room.rate}
               </div>
             </div>
 
             <div className="flex items-center gap-1 mt-2">
               <MapPin className="w-5 h-5 text-gray-500" />
-              <span className="text-[13px]">{room.hotel.address}</span>
+              <span className="text-[13px] line-clamp-1">
+                {room.hotel.address}
+              </span>
             </div>
 
             <div className="flex items-center justify-between mt-4">
@@ -55,9 +60,9 @@ const HotelCard = ({ room, index }: { room: RoomWithHotel; index: number }) => {
                 / Night
               </p>
 
-              <Button variant="outline" className="text-sm px-2 font-medium">
+              <span className="inline-flex items-center justify-center border border-input rounded-md text-sm px-2 py-1 hover:text-primary-foreground hover:border-primary-foreground font-medium">
                 Book Now
-              </Button>
+              </span>
             </div>
           </CardContent>
         </Link>

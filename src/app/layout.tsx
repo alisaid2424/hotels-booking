@@ -17,7 +17,10 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Hotel Booking",
+  title: {
+    default: "Hotel Booking — Book Stays Worldwide",
+    template: "%s — Hotel Booking",
+  },
   description:
     "A modern hotel booking platform delivering fast reservations and a seamless experience powered by cutting-edge web technologies.",
   icons: {
@@ -36,6 +39,7 @@ export default function RootLayout({
         <link
           rel="preconnect"
           href="https://lasting-meerkat-51.clerk.accounts.dev"
+          crossOrigin=""
         />
       </head>
       <body className={`${outfit.variable} ${playfair.variable} antialiased`}>

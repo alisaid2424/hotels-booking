@@ -6,6 +6,8 @@ import BookingForm from "./components/BookingForm";
 import Image from "next/image";
 import Link from "next/link";
 import { getRoom } from "@/server/db/room";
+import { notFound } from "next/navigation";
+import { Metadata } from "next";
 
 type PageProps = {
   params: Promise<{
@@ -13,9 +15,23 @@ type PageProps = {
   }>;
 };
 
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
+  const { roomId } = await params;
+  const room = await getRoom(roomId);
+  if (!room) return {};
+
+  return {
+    title: `${room.hotel.name} — ${room.roomType}`,
+    description: `Book ${room.roomType} at ${room.hotel.name} in ${room.hotel.address} — $${room.pricePerNight}/night. ${room.amenities.slice(0, 5).join(", ")}.`,
+  };
+}
+
 const RoomDetails = async ({ params }: PageProps) => {
   const { roomId } = await params;
   const room = await getRoom(roomId);
+  if (!room) notFound();
 
   return (
     <div className="py-24 md:py-28 padding-x">
@@ -25,7 +41,7 @@ const RoomDetails = async ({ params }: PageProps) => {
           {room?.hotel.name}{" "}
           <span className="font-outfit text-sm">({room?.roomType})</span>
         </h2>
-        <p className="text-xs py-1.5 px-3 text-white bg-primary rounded-full">
+        <p className="text-xs py-1.5 px-3 text-primary-foreground bg-primary rounded-full">
           20% OFF
         </p>
       </div>
@@ -111,7 +127,6 @@ const RoomDetails = async ({ params }: PageProps) => {
             width={200}
             height={200}
             className="h-14 w-14 md:w-16 md:h-16 rounded-full"
-            priority
           />
           <div>
             <p className="text-lg md:text-xl">Hosted by {room?.hotel.name} </p>
@@ -123,8 +138,8 @@ const RoomDetails = async ({ params }: PageProps) => {
         </div>
 
         <Link
-          href="#"
-          className="px-6 py-2.5 mt-4 rounded text-white bg-primary hover:bg-primary/90 transition-all"
+          href="/contact"
+          className="px-6 py-2.5 mt-4 rounded text-primary-foreground bg-primary hover:bg-primary/90 transition-all"
         >
           Contact Now
         </Link>

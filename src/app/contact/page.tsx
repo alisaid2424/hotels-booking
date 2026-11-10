@@ -3,6 +3,13 @@ import { Badge } from "@/components/ui/badge";
 import { Mail, Phone } from "lucide-react";
 import Image from "next/image";
 import ContactForm from "./_components/ContactForm";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Contact Us",
+  description:
+    "Get in touch with our team — email, phone, or drop us a message and we'll make sure every guest finds their perfect stay.",
+};
 
 const ContactPage = () => {
   return (
@@ -35,6 +42,7 @@ const ContactPage = () => {
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuALwJUcwaHi5n_1gW4NZy4ZeovwJeDyHpD9m7jO7vrd2NeapjU3czp5-9J5BpOBFfyOJy_yPW5sxreIwxsKrZvDksW99-aHy6YAq_oo3RflAYNcV_QSlzDoKs9o4J92Qu_fbHFn9QPrgefbVx8evE4KH3NNM78L3rWwCMVfPcJdS6dkpi2v5hhlYRgJXUgvXwbEYYqeLeTA3iB1N8toAo_4Lg27o7NvOWLsDv0H95rLpGN0QoYIXPtCQCUftYCDXSBiLrRjtF5nSw"
               alt="Guest Relations"
               fill
+              sizes="(min-width:1024px) 33vw, 100vw"
               className="object-cover"
             />
 

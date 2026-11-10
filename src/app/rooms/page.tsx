@@ -9,6 +9,7 @@ import { MapPin } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import Motion from "@/components/Motion";
+import { Metadata } from "next";
 
 type SearchParams = {
   destination?: string;
@@ -16,6 +17,20 @@ type SearchParams = {
   roomType?: string;
   price?: string;
 };
+
+export async function generateMetadata({
+  searchParams,
+}: {
+  searchParams: Promise<SearchParams>;
+}): Promise<Metadata> {
+  const { destination } = await searchParams;
+
+  return {
+    title: destination ? `Hotels in ${destination}` : "Hotel Rooms",
+    description:
+      "Browse hand-picked hotel rooms and exclusive packages. Filter by destination, price, and amenities to plan your perfect stay.",
+  };
+}
 
 const AllRooms = async ({
   searchParams,
@@ -49,16 +64,17 @@ const AllRooms = async ({
               className="flex flex-col md:flex-row items-start py-10 gap-6 border-b border-gray-300 last:pb-28 last:border-0"
             >
               <Link
-                href={`room-details/${room.id}`}
+                href={`/room-details/${room.id}`}
                 className="relative w-full md:w-96 h-64 rounded-xl shadow-lg overflow-hidden"
               >
                 <Image
                   src={room.images[0]}
-                  alt="hotel-img"
+                  alt={`${room.hotel.name} room`}
                   fill
+                  sizes="(max-width:768px) 100vw, 384px"
                   title="View Room Details"
                   className="object-cover"
-                  priority
+                  priority={index === 0}
                 />
               </Link>
 

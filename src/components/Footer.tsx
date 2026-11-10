@@ -91,7 +91,10 @@ const Footer = () => {
               className="bg-white rounded-l border border-gray-300 h-9 px-3 outline-none"
               placeholder="Your email"
             />
-            <button className="group flex items-center justify-center bg-black h-9 w-9 aspect-square rounded-r">
+            <button
+              aria-label="Subscribe"
+              className="group flex items-center justify-center bg-black h-9 w-9 aspect-square rounded-r"
+            >
               <ArrowRight className="group-hover:translate-x-1 w-4 h-4 transition" />
             </button>
           </div>
