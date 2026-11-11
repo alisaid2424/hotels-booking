@@ -39,7 +39,7 @@ export default function RootLayout({
         <link
           rel="preconnect"
           href="https://lasting-meerkat-51.clerk.accounts.dev"
-          crossOrigin=""
+          crossOrigin="use-credentials"
         />
       </head>
       <body className={`${outfit.variable} ${playfair.variable} antialiased`}>

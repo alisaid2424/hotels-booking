@@ -15,13 +15,14 @@ const Hero = async () => {
         alt="Hero background"
         fill
         priority
-        quality={75}
+        quality={65}
+        sizes="(min-width:1200px) 1200px, 100vw"
         className="object-cover"
       />
       <div className="overlay absolute inset-0 w-full h-full bg-black/80" />
 
       <div className="relative">
-        <Motion className="text-center sm:text-left">
+        <Motion fade={false} className="text-center sm:text-left">
           <p className="bg-[#49B9FF]/50 px-3.5 py-1 rounded-full w-fit mx-auto sm:mx-0">
             The Ultimate Hotel Experience
           </p>

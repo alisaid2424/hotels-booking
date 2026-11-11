@@ -76,8 +76,8 @@ const FormSearchDestination = ({ cities }: { cities: string[] }) => {
 
   return (
     <motion.form
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
+      initial={{ y: 30 }}
+      animate={{ y: 0 }}
       transition={{ duration: 0.8, delay: 0.2 }}
       onSubmit={onSearch}
       className="bg-white text-gray-500 rounded-lg px-6 py-4 mt-8 flex flex-col md:flex-row max-md:items-start gap-4 max-md:mx-auto"
